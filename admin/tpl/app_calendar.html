@@ -1,0 +1,106 @@
+<div ng-controller="FullcalendarCtrl">
+    <div class="wrapper-md bg-light b-b">
+        <button type="button" class="btn btn-default btn-addon pull-right m-t-n-xs" ui-toggle-class="show" target="#aside">
+            <i class="fa fa-bars"></i> 列表
+        </button>
+        <h1 class="m-n font-thin h3">日程安排</h1>
+    </div>
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+        <div class="col wrapper-md">
+            <div class="clearfix m-b">
+                <button type="button" tooltip="双击day可以增日程" class="btn btn-sm btn-primary btn-addon" ng-click="addEvent()">
+                    <i class="fa fa-plus"></i>新增日程
+                </button>
+                <!-- 弹出新增框 -->
+                <!-- Modal -->
+                <script type="text/ng-template" id="myModalContent.html">
+                    <div class="modal-header">
+                        <h4 class="modal-title">新增日程</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="bs-example form-horizontal" id="defaultForm" role="form" data-toggle="validator">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">日期:</label>
+                                <div class="col-lg-4" style="padding-right: 0;">
+                                    <input class="form-control" type="datetime-local" name="" ng-model="calendarObj.dateStart">
+                                </div>
+                                <div class="col-lg-1" style="line-height: 34px;">
+                                    至
+                                </div>
+                                <div class="col-lg-4" style="padding-right: 0;padding-left:0">
+                                    <input class="form-control" type="datetime-local" name="" ng-model="calendarObj.dateEnd">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">标题:</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" type="text" placeholder="事件标题" name="title" ng-model="calendarObj.title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">内容:</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" rows="3" placeholder="事件内容" ng-model="calendarObj.info"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">地点:</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" placeholder="地点" ng-model="calendarObj.location">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">标签颜色:</label>
+                                <div class="col-lg-10">
+                                    <div class="inline dropdown" dropdown>
+                                        <a class="inline bg-{{note.color}}" dropdown-toggle style="width:30px;height:30px;top:-2px"></a>
+                                        <div class="dropdown-menu animated fadeInUp w wrapper">
+                                            <a ng-repeat="color in colors" class="inline m-xs bg-{{color}}" style="width:18px;height:18px" ng-click=" note.color = color "></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" ng-click="cancel()">取消</button>
+                        <button class="btn btn-primary" type="submit" ng-click="ok()">添加</button>
+                    </div>
+                </script>
+                <!-- /Modal -->
+                <div class="pull-right">
+                    <button type="button" class="btn btn-sm btn-default" ng-click="today()">今天</button>
+                    <div class="btn-group m-l-xs">
+                        <button class="btn btn-sm btn-default" ng-click="changeView('agendaDay')">日</button>
+                        <button class="btn btn-sm btn-default" ng-click="changeView('agendaWeek')">周</button>
+                        <button class="btn btn-sm btn-default" ng-click="changeView('month')">月</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pos-rlt">
+                <div class="fc-overlay">
+                    <div class="panel bg-white b-a pos-rlt">
+                        <span class="arrow"></span>
+                        <div class="h4 font-thin m-b-sm">{{event.title}}</div>
+                        <div class="line b-b b-light"></div>
+                        <div><i class="icon-calendar text-muted m-r-xs"></i> {{event.start | date:'medium'}}</div>
+                        <div class="ng-hide" ng-show='event.end'><i class="icon-clock text-muted m-r-xs"></i> {{event.end | date:'medium'}}</div>
+                        <div class="ng-hide" ng-show='event.location'><i class="icon-pointer text-muted m-r-xs"></i> {{event.location}}</div>
+                        <div class="m-t-sm">{{event.info}}</div>
+                        <div class="m-t-sm">{{event.url}}</div>
+                    </div>
+                </div>
+                <div class="calendar" ng-model="eventSources" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
+            </div>
+        </div>
+        <div class="col w-md w-auto-xs bg-light dk bg-auto b-l hide" id="aside">
+            <div class="wrapper">
+                <div ng-repeat="e in events" class="bg-white-only r r-2x m-b-xs wrapper-sm {{e.className[0]}}">
+                    <input ng-model="e.title" class="form-control m-t-n-xs no-border no-padder no-bg">
+                    <a class="pull-right text-xs text-muted" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
+                    <div class="text-xs text-muted">{{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

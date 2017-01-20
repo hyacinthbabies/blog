@@ -1,0 +1,29 @@
+{
+  "name": "blog-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyacinthbabies/blog-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyacinthbabies/blog-frontend/issues"
+  },
+  "homepage": "https://github.com/hyacinthbabies/blog-frontend#readme",
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "webpack": "^1.14.0"
+  },
+  "devDependencies": {
+    "open-browser-webpack-plugin": "0.0.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

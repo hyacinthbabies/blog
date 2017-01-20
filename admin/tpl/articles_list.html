@@ -1,0 +1,79 @@
+<!-- <div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Static Table</h1>
+</div> -->
+<div class="wrapper-md" ng-controller="ArticleController">
+  <div class="panel panel-default" ng-show="showType == 'list'">
+    <div class="panel-heading">
+      查询文章列表
+    </div>
+    <div class="row wrapper">
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">查询</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th style="width:20px;">
+              <label class="i-checks m-b-none">
+                <input type="checkbox"><i></i>
+              </label>
+            </th>
+            <th>日期</th>
+            <th>标题</th>
+            <th width="50%">梗概</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+        	<tr ng-repeat="list in articleLists">
+        		<td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+        		<td>{{list.date}}</td>
+        		<td>{{list.title}}</td>
+        		<td>{{list.summary}}</td>
+        		<td>
+	        		<button class="btn btn-success" ng-click="queryDetail('query')">查看</button>
+	               <button class="btn btn-primary" ng-click="queryDetail('edit')">编辑</button>
+	               <button class="btn btn-danger" ng-click="queryDetail('delete')">删除</button>
+               </td>
+        	</tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+          <select class="input-sm form-control w-sm inline v-middle">
+            <option value="0">选择条数</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <button class="btn btn-sm btn-default">确认</button>                  
+        </div>
+        <!-- <div class="col-sm-4 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm">每页8条</small>
+        </div> -->
+        <div class="col-sm-8 text-right text-center-xs">                
+          <!-- <ul class="pagination pagination-sm m-t-none m-b-none">
+            <li><a href><i class="fa fa-chevron-left"></i></a></li>
+            <li><a href>1</a></li>
+            <li><a href>2</a></li>
+            <li><a href>3</a></li>
+            <li><a href>4</a></li>
+            <li><a href>5</a></li>
+            <li><a href><i class="fa fa-chevron-right"></i></a></li>
+          </ul> -->
+          <ui-pagination page-count="18" current-page="1" on-page-change="onPageChange()" first-text="首页" last-text="最后一页" prev-text="上一页" next-text="下一页"></ui-pagination>
+        </div>
+
+      </div>
+    </footer>
+  </div>
+</div>
