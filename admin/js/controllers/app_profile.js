@@ -1,4 +1,4 @@
-myApp.controller('ProfileController', function($scope, $state) {
+angular.module('app').controller('ProfileController', function($scope, $state) {
      $scope.timeline = true;
      $scope.select = function(option){
          switch(option){

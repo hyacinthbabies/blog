@@ -1,4 +1,4 @@
-<div class="bg-light lter b-b wrapper-md">
+<!-- <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">生活类文章</h1>
 </div>
 <div class="wrapper-md">
@@ -53,33 +53,7 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <h5 class="font-bold">Categories</h5>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href>
-                        <span class="badge pull-right">15</span> Photograph
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href>
-                        <span class="badge pull-right">30</span> Life style
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href>
-                        <span class="badge pull-right">9</span> Food
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href>
-                        <span class="badge pull-right">4</span> Travel world
-                    </a>
-                </li>
-            </ul>
-            <div class="tags m-b-lg l-h-2x">
-                <a href class="label bg-primary">Bootstrap</a> <a href class="label bg-primary">Application</a> <a href class="label bg-primary">Apple</a> <a href class="label bg-primary">Less</a> <a href class="label bg-primary">Theme</a> <a href class="label bg-primary">Wordpress</a>
-            </div>
-            <h5 class="font-bold">Recent Posts</h5>
+            <h5 class="font-bold">全部</h5>
             <div>
                 <div>
                     <a class="pull-left thumb thumb-wrapper m-r">
@@ -114,3 +88,71 @@
         </div>
     </div>
 </div>
+ -->
+<!-- hbox layout -->
+<div class="hbox hbox-auto-xs bg-light " ng-init="
+  app.settings.asideFixed = true;
+  app.settings.asideDock = false;
+  app.settings.container = false;
+  app.hideAside = false;
+  app.hideFooter = true;
+  " ng-controller="LifeCtrl">
+    <!-- column -->
+    <div class="col w-lg lt b-r" style="width:320px;">
+        <div class="vbox">
+            <div class="wrapper">
+                <div class="h4">生活类文章</div>
+            </div>
+            <div class="wrapper b-t m-t-xxs">
+                <div class="input-group">
+                    <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control input-sm" placeholder="搜索" ng-model="query">
+                </div>
+            </div>
+            <div class="row-row">
+                <div class="cell scrollable hover">
+                    <div class="cell-inner">
+                        <div class="padder">
+                            <div class="list-group">
+                                <a ng-repeat="note in notes | filter:query | orderBy:'date':true" class="list-group-item b-l-{{note.color}} b-l-3x hover-anchor" ng-class="{'hover': note.selected }" ng-click="selectNote(note)">
+                                    <span class="pull-left thumb thumb-wrapper m-r" style="width: 45px;">
+                                        <img src="img/b0.jpg" style="height: 38px;">
+                                    </span>
+                                    <span ng-click='deleteNote(note)' class="pull-right text-muted hover-action"><i class="fa fa-times"></i></span>
+                                    <span class="block text-ellipsis">{{ note.title ? note.title : 'Empty note' }}</span>
+                                    <small class="text-muted">{{note.title}}</small>
+                                    <!-- <small class="text-muted">{{ note.date | fromNow }}</small> -->
+                                    <div class="line line-xs b-b b-light"></div>
+                                    <div class="text-muted">
+                                        <i class="fa fa-user text-muted"></i><small> by hyacinth</small>
+                                        <i class="fa fa-clock-o text-muted"></i> <small>2016/12/12 星期日</small>
+                                    
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+    <!-- column -->
+    <div class="col">
+        <div class="vbox">
+            <div class="wrapper bg-light lt b-b">
+                <span class="text-muted">创建于:</span> <span>{{ note.date  | date:'MMM-dd-yyyy H:mm' }}</span>
+            </div>
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner">
+                        <div class="form-control no-radius no-border no-bg wrapper-lg text-md" style="height:100%;">{{note.content}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+</div>
+<!-- /hbox layout -->

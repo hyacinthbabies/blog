@@ -1,5 +1,4 @@
-angular.module('app')
-  .directive('uiNav', ['$timeout', function($timeout) {
+angular.module('app').directive('uiNav', ['$timeout', function($timeout) {
     return {
       restrict: 'AC',
       link: function(scope, el, attr) {

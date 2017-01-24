@@ -1,4 +1,4 @@
-myApp.controller('ArticleController', function($scope, $state) {
+angular.module('app').controller('ArticleController', function($scope, $state) {
     var page = {
         pageNo: 0,
         pageSize: 8
@@ -12,10 +12,9 @@ myApp.controller('ArticleController', function($scope, $state) {
         title: '小程序',
         summary: '小程序也有应用商城，只是app需要下载，而它是扫描二维码。小程序也有应用商城，只是app需要下载，而它是扫描二维码小程序也有应用商城，只是app需要下载，而它是扫描二维码'
     }];
-
     $scope.articleLists = lists;
     $scope.showType = 'list';
-    $scope.queryDetail = function(type) {
+    $scope.queryDetail = (type) => {
         switch (type) {
             case 'query':
                 // $scope.showType = 'query';
@@ -30,5 +29,21 @@ myApp.controller('ArticleController', function($scope, $state) {
                 break;
         }
         console.log($scope.showType);
+        console.log('ssss');
     }
 });
+
+// export default angular.module('app').controller('ArticleController',() => new ArticleController());
+// class ArticleController {
+//     constructor() { 
+//         this.name = 'angular&es6';
+//     }
+
+//     getName() {
+//         debugger;
+//         return this.name;
+//     }
+// }
+// export default angular.module('app', [])
+//     .controller('Article', new ArticleController())
+//     .name;

@@ -1,4 +1,4 @@
-myApp.controller('DetailControl',function($scope){
+angular.module('app').controller('DetailControl',function($scope){
 	$scope.form = 'dddd';
 	
 });

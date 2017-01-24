@@ -2,7 +2,7 @@
  * calendarDemoApp - 0.1.3
  */
 
-myApp.controller('FullcalendarCtrl', ['$scope', '$modal', '$filter', function($scope, $modal, $filter) {
+angular.module('app').controller('FullcalendarCtrl', ['$scope', '$modal', '$filter', function($scope, $modal, $filter) {
 
     var date = new Date();
     var d = date.getDate();

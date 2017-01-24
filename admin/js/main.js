@@ -1,4 +1,4 @@
-myApp.controller('AppCtrl', ['$scope', '$rootScope','$state',
+angular.module('app').controller('AppCtrl', ['$scope', '$rootScope','$state',
     function($scope, $rootScope,$state) {
         // add 'ie' classes to html
         // var isIE = !!navigator.userAgent.match(/MSIE/i);

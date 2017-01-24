@@ -1,4 +1,4 @@
-myApp.controller('ContactCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+angular.module('app').controller('ContactCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
   $http.get('js/controllers/contacts.json').then(function (resp) {
     $scope.items = resp.data.items;
     $scope.item = $filter('orderBy')($scope.items, 'first')[0];

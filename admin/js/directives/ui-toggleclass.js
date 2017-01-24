@@ -1,4 +1,4 @@
-myApp.directive('uiToggleClass', ['$timeout', '$document', function($timeout, $document) {
+angular.module('app').directive('uiToggleClass', ['$timeout', '$document', function($timeout, $document) {
     return {
         restrict: 'AC',
         link: function(scope, el, attr) {

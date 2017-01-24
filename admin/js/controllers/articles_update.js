@@ -1,4 +1,4 @@
-myApp.controller('UpdateControl', function($scope,$rootScope) {
+angular.module('app').controller('UpdateControl', function($scope,$rootScope) {
     $scope.editorContent = 'dddd';
     $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {

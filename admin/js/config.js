@@ -1,5 +1,3 @@
-var myApp = angular.module('app', ['ui.router', 'oc.lazyLoad','ngAnimate','ui.bootstrap']);
-
 angular.module('app').config(
     ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
         function($controllerProvider, $compileProvider, $filterProvider, $provide) {

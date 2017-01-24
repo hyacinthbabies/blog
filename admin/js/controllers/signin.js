@@ -1,6 +1,6 @@
 /* Controllers */
 // signin controller
-myApp.controller('SigninFormController', ['$scope', '$http', '$state', '$rootScope', function($scope, $http, $state, $rootScope) {
+angular.module('app').controller('SigninFormController', ['$scope', '$http', '$state', '$rootScope', function($scope, $http, $state, $rootScope) {
     $scope.user = {
         name: '',
         password: ''

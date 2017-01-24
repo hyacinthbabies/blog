@@ -1,4 +1,4 @@
-myApp.directive('wangeditor', function() {
+angular.module('app').directive('wangeditor', function() {
     return {
         restrict: 'A',
         require: '?ngModel',
@@ -37,7 +37,7 @@ myApp.directive('wangeditor', function() {
              });
             // editor.$editorContainer.css('z-index', 20);
             editor.config.mapAk = 'gGFTp2HHbC4mqtcld5zZVwh66g5rl5GR';
-            editor.config.uploadImgUrl = 'http://127.0.0.1:3000/files/upload';
+            editor.config.uploadImgUrl = '/files/upload';
             editor.config.uploadImgFileName = 'pic';
             editor.config.uploadImgFns.onload = function(resultText, xhr) {
                 var url = resultText;

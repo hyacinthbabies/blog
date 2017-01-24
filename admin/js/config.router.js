@@ -1,7 +1,7 @@
 /*
 路由配置
  */
-myApp.run(
+angular.module('app').run(
     ['$rootScope', '$state', '$stateParams',
         function($rootScope, $state, $stateParams) {
             $rootScope.$state = $state;
@@ -10,6 +10,7 @@ myApp.run(
     ]
 ).config(
     ['$stateProvider', '$urlRouterProvider',
+
         function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider
                 .otherwise('/access/signin');
@@ -23,22 +24,42 @@ myApp.run(
                     url: '/article-list',
                     templateUrl: 'tpl/articles_list.html',
                     resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
-                        loadMyControl: ['$ocLazyLoad',
-                            function($ocLazyLoad) {
-                                return $ocLazyLoad.load(['js/controllers/articles_list.js']);
-                            }
-                        ]
+                        // loadMyControl: ['$ocLazyLoad',
+                        //     function($ocLazyLoad) {
+                        //         return $ocLazyLoad.load(['js/controllers/articles_list.js']);
+                        //     }
+                        // ]
+                        loadListController: ($q, $ocLazyLoad) => {
+                            return $q((resolve) => {
+                                require.ensure([], () => {
+                                    // load whole module
+                                    let module = require('./controllers/articles_list.js');
+                                    $ocLazyLoad.load({ name: 'app' });
+                                    resolve(module.controller);
+                                });
+                            });
+                        }
                     }
                 })
                 .state('app.article-detail', {
                     url: '/article-detail',
                     templateUrl: 'tpl/articles_detail.html',
                     resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
-                        loadMyControl: ['$ocLazyLoad',
-                            function($ocLazyLoad) {
-                                return $ocLazyLoad.load(['js/controllers/articles_detail.js']);
-                            }
-                        ]
+                        // loadMyControl: ['$ocLazyLoad',
+                        //     function($ocLazyLoad) {
+                        //         return $ocLazyLoad.load(['js/controllers/articles_detail.js']);
+                        //     }
+                        // ]
+                        loadDetailController: ($q, $ocLazyLoad) => {
+                            return $q((resolve) => {
+                                require.ensure([], () => {
+                                    // load whole module
+                                    let module = require('./controllers/articles_detail.js');
+                                    $ocLazyLoad.load({ name: 'app' });
+                                    resolve(module.controller);
+                                });
+                            });
+                        }
                     }
                 })
                 .state('app.article-update', {

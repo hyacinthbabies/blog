@@ -1,4 +1,4 @@
-myApp.constant('ngPaginationConfig', {
+angular.module('app').constant('ngPaginationConfig', {
     visiblePageCount: 6,
     firstText: 'First',
     lastText: 'Last',
