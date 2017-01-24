@@ -7,7 +7,7 @@ myApp.controller('AppCtrl', ['$scope', '$rootScope','$state',
         // config
         $scope.app = {
             name: 'Hyacinth',
-            version: '1.3.3',
+            version: '1.0',
             // for chart colors
             color: {
                 primary: '#7266ba',

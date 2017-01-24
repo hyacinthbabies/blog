@@ -6,9 +6,9 @@
     </button>
     <!-- brand -->
     <a href="#/" class="navbar-brand text-lt">
-        <i class="fa fa-btc"></i>
-        <img src="img/logo.png" alt="." class="hide">
-        <span class="hidden-folded m-l-xs">{{app.name}}</span>
+        <!-- <i class="fa fa-btc"></i> -->
+        <!-- <img src="img/logo.png" alt="." class="hide"> -->
+        <span class="hidden-folded m-l-xs">{{app.name}}管理</span>
     </a>
     <!-- / brand -->
 </div>
@@ -157,7 +157,7 @@
     <!-- / link and dropdown -->
     <!-- search form -->
     <!-- <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl"> -->
-    <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" target=".navbar-collapse" role="search">
+    <!-- <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" target=".navbar-collapse" role="search">
         <div class="form-group">
             <div class="input-group">
                 <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search projects...">
@@ -166,7 +166,7 @@
               </span>
             </div>
         </div>
-    </form>
+    </form> -->
     <!-- / search form -->
     <!-- nabar right -->
     <ul class="nav navbar-nav navbar-right">
@@ -183,21 +183,6 @@
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">
-                <li>
-                    <a href>
-                        <span class="badge bg-danger pull-right">30%</span>
-                        <span>完善信息</span>
-                    </a>
-                </li>
-                <li>
-                    <a ui-sref="app.page.profile">动态</a>
-                </li>
-                <li>
-                    <a ui-sref="app.docs">
-                        <span class="label bg-info pull-right">new</span> Help
-                    </a>
-                </li>
-                <li class="divider"></li>
                 <li>
                     <a href="/index.html">首页</a>
                 </li>
