@@ -24,7 +24,6 @@
             <div class="padder">
               <div class="list-group">
                 <a ng-repeat="note in notes | filter:query | orderBy:'date':true" class="list-group-item b-l-{{note.color}} b-l-3x hover-anchor" ng-class="{'hover': note.selected }" ng-click="selectNote(note)">
-                  <span ng-click='deleteNote(note)' class="pull-right text-muted hover-action"><i class="fa fa-times"></i></span>
                   <span class="block text-ellipsis">{{ note.title ? note.title : 'Empty note' }}</span>
                   <small class="text-muted">{{ note.date | fromNow }}</small>
                 </a>
