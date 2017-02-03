@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hyacinth</title>
+    <link rel="icon" href="/hyacinth.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+</head>
+
+<body ng-controller="AppCtrl">
+    <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.1/angular.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="framework/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.1/angular-animate.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script> -->
+    <!-- lazyload -->
+    <script src="http://cdn.bootcss.com/oclazyload/1.0.9/ocLazyLoad.min.js"></script>
+    <!-- App -->
+    <script src="docjs/app.js"></script>
+    <!-- <script src="docjs/config.js"></script> -->
+    <!-- <script src="docjs/config.lazyload.js"></script> -->
+    <script src="docjs/config.router.js"></script>
+    <script src="docjs/main.js"></script>
+    <script src="docjs/services/ui-load.js"></script>
+    <!-- <script src="docjs/filters/fromNow.js"></script> -->
+    <!-- <script src="docjs/directives/setnganimate.js"></script> -->
+    <!-- <script src="docjs/directives/ui-butterbar.js"></script> -->
+    <!-- <script src="docjs/directives/wang-editor.js"></script> -->
+    <script src="docjs/directives/ui-pagination.js"></script>
+    <!-- <script src="docjs/directives/ui-focus.js"></script> -->
+    <!-- <script src="docjs/directives/ui-fullscreen.js"></script> -->
+    <!-- <script src="docjs/directives/ui-jq.js"></script> -->
+    <!-- <script src="docjs/directives/ui-module.js"></script> -->
+    <!-- <script src="docjs/directives/ui-nav.js"></script> -->
+    <script src="docjs/directives/ui-scroll.js"></script>
+    <!-- <script src="docjs/directives/ui-shift.js"></script> -->
+    <!-- <script src="docjs/directives/ui-toggleclass.js"></script> -->
+    <!-- <script src="docjs/directives/ui-validate.js"></script> -->
+    <!-- <script src="docjs/controllers/bootstrap.js"></script> -->
+</body>
+
+</html>
