@@ -12,27 +12,23 @@ myApp.run(
     ['$stateProvider', '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider
-                .otherwise('/app/docs');
+                .otherwise('/app/resume');
             $stateProvider
                 .state('app', {
                     abstract: true, //表明此状态不能被显性激活，只能被子状态隐性激活
                     url: '/app',
-                    templateUrl: 'doctpl/app.html'
+                    templateUrl: 'aboutpl/app.html'
                 })
-                .state('app.docs', {
-                    url: '/docs',
-                    templateUrl: 'doctpl/docs.html',
+                .state('app.resume', {
+                    url: '/resume',
+                    templateUrl: 'aboutpl/resume.html',
                     resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
                         loadMyControl: ['$ocLazyLoad',
                             function($ocLazyLoad) {
-                                return $ocLazyLoad.load(['docjs/controllers/profile.js']);
+                                return $ocLazyLoad.load(['aboutjs/controllers/resume.js']);
                             }
                         ]
                     }
-                })
-                .state('app.bootstrap', {
-                    url: '/bootstrap',
-                    templateUrl: 'doctpl/bootstrap.html'
                 })
         }
     ]);
