@@ -1,11 +1,15 @@
-angular.module('app').controller('UpdateControl', function($scope,$rootScope) {
-    $scope.editorContent = 'dddd';
-    $rootScope.$on('$stateChangeStart',
-            function(event, toState, toParams, fromState, fromParams) {
-                // event.preventDefault();
-                // transitionTo() promise will be rejected with
-                // a 'transition prevented' error
-            })
+angular.module('app').controller('UpdateControl', function($scope,$stateParams,$http,$state) {
+    $scope.editorContent = "";
+    $scope.editorName = "";
+    $scope.authorName = "";
+    $scope.editorId = "";
+    $scope.editorType = "2";
+    $scope.$on('$stateChangeStart',
+        function(event, toState, toParams, fromState, fromParams) {
+            // event.preventDefault();
+            // transitionTo() promise will be rejected with
+            // a 'transition prevented' error
+        })
         // 	var editor = new wangEditor('textarea1');
         // 	// 配置自定义表情，在 create() 之前配置
         // editor.config.emotions = {
@@ -36,5 +40,37 @@ angular.module('app').controller('UpdateControl', function($scope,$rootScope) {
     // };
 
     //     editor.create();
+    let id = $stateParams.id;
+    $http.post("/api/queryContent/"+id)
+      .then(function(response) {
+          if (response.status === 200 ) {
+              $scope.editorName = response.data.articleName;
+              $scope.editorContent = response.data.articleContent;
+              $scope.authorName = response.data.authorName;
+              $scope.editorType = response.data.articleType
+              $scope.editorId = response.data._id;
+          }
+        }, function(x) {
+          $scope.authError = 'Server Error';
+      });
 
+      
+    $scope.update = function() {
+      $scope.authError = null;
+      if($scope.editorName.trim() ===""||
+      $('#textarea1').val() === "")return;
+      $http.post('/api/updateContent', {
+        articleId:$scope.editorId,
+        authorName:$scope.authorName,
+        articleType:$scope.editorType,
+        articleName:$scope.editorName.trim(),
+        articleContent:$('#content').html()})
+      .then(function(response) {
+        if (response.status === 200 ) {
+          $state.go("app.article-list")
+        }
+      }, function(x) {
+        $scope.authError = 'Server Error';
+      });
+    };
 });

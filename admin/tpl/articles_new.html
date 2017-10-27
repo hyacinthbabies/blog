@@ -1,0 +1,34 @@
+<div class="wrapper-md" ng-controller="AddNewControl">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold">新增文章</div>
+        <div class="panel-body">
+            <form role="form">
+                <div class="form-group">
+                    <label>标题：</label>
+                    <input type="text" class="form-control" placeholder="请输入标题" ng-model="editorName">
+                </div>
+                <div class="form-group">
+                    <label>作者：</label>
+                    <input type="text" class="form-control" placeholder="请输入作者" ng-model="authorName">
+                </div>
+                <div class="form-group">
+                    <label>内容：</label>
+                    <textarea wangeditor id="textarea1" class="form-control" placeholder="请输入内容" rows="14" ng-model="editorContent"><p>请输入内容...</p></textarea>
+                </div>
+                <div class="form-group">
+                        <span>
+                            文章类别：<select class="input-sm form-control w-sm inline v-middle" ng-model="editorType">
+                                    <option value="1">生活类</option>
+                                    <option value="2">文章类</option>
+                                    <option value="3">书本类</option>
+                                    <option value="4">译文类</option>
+                                  </select>
+    
+                        </span>
+    
+                    </div>
+                <button type="submit" class="btn btn-sm btn-primary pull-right" ng-click="add()">添加</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -6,11 +6,19 @@
         </div>
         <div class="panel-body">
             <div class="" style="padding:0 50px;">
-                <h3 class="text-center">文章题目</h3>
+                <h3 class="text-center">{{content.articleName}}</h3>
                 <p class="text-center">
-                    <cite title="时间 作者">Source Title</cite>
+                    <cite title="时间 作者" style="font-style: normal;">作者:{{content.authorName}}</cite>
+                    </cite>
                 </p>
-                <p style="text-indent:2em">文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+                <p class="text-center">
+                    <cite title="时间 作者" style="font-style: normal;">时间:{{content.articleDate}}</cite>
+                    </cite>
+                </p>
+                <p style="text-indent:2em" id="htmlContent">
+                    {{content.articleContent}}                
+                </p>
+                <p>本文原创，转载请注明作者及出处                </p>
             </div>
         </div>
     </div>

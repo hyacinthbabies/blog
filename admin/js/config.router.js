@@ -42,7 +42,7 @@ angular.module('app').run(
                     }
                 })
                 .state('app.article-detail', {
-                    url: '/article-detail',
+                    url: '/article-detail/:id',
                     templateUrl: 'tpl/articles_detail.html',
                     resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
                         // loadMyControl: ['$ocLazyLoad',
@@ -63,12 +63,23 @@ angular.module('app').run(
                     }
                 })
                 .state('app.article-update', {
-                    url: '/article-update',
+                    url: '/article-update/:id',
                     templateUrl: 'tpl/articles_update.html',
                     resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
                         loadMyControl: ['$ocLazyLoad',
                             function($ocLazyLoad) {
                                 return $ocLazyLoad.load(['js/controllers/articles_update.js', 'framework/wangeditor/css/wangEditor.min.css', 'framework/wangeditor/wangEditor.min.js']);
+                            }
+                        ]
+                    }
+                })
+                .state('app.article-new', {
+                    url: '/article-new',
+                    templateUrl: 'tpl/articles_new.html',
+                    resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
+                        loadMyControl: ['$ocLazyLoad',
+                            function($ocLazyLoad) {
+                                return $ocLazyLoad.load(['js/controllers/articles_new.js', 'framework/wangeditor/css/wangEditor.min.css', 'framework/wangeditor/wangEditor.min.js']);
                             }
                         ]
                     }

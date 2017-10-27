@@ -27,20 +27,24 @@
             </th>
             <th>日期</th>
             <th>标题</th>
-            <th width="50%">梗概</th>
+            <th>作者</th>
+            <th>类别</th>
+            <th width="30%">梗概</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody>
         	<tr ng-repeat="list in articleLists">
         		<td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-        		<td>{{list.date}}</td>
-        		<td>{{list.title}}</td>
-        		<td>{{list.summary}}</td>
+            <td>{{list.articleDate}}</td>
+            <td>{{list.articleName}}</td>
+            <td>{{list.authorName}}</td>
+            <td>{{list.articleType | type}}</td>
+        		<td>{{list.articleName}}</td>
         		<td>
-	        		<button class="btn btn-success" ng-click="queryDetail('query')">查看</button>
-	               <button class="btn btn-primary" ng-click="queryDetail('edit')">编辑</button>
-	               <button class="btn btn-danger" ng-click="queryDetail('delete')">删除</button>
+	        		<button class="btn btn-success" ng-click="jumpType('query',list._id)">查看</button>
+	               <button class="btn btn-primary" ng-click="jumpType('edit',list._id)">编辑</button>
+	               <button class="btn btn-danger" ng-click="jumpType('delete',list._id)">删除</button>
                </td>
         	</tr>
         </tbody>

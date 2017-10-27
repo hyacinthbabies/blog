@@ -12,7 +12,9 @@
 /******/ 			installedChunks[chunkId] = 0;
 /******/ 		}
 /******/ 		for(moduleId in moreModules) {
-/******/ 			modules[moduleId] = moreModules[moduleId];
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
 /******/ 		}
 /******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
 /******/ 		while(callbacks.length)
@@ -85,7 +87,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "15ac885073f94621b712"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ef57bbb4441d93f017f8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -620,7 +622,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/admin/build";
+/******/ 	__webpack_require__.p = "/admin/build/";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -631,7 +633,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -677,9 +679,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -695,9 +697,9 @@
 	    myApp.value = $provide.value;
 	}]);
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -713,9 +715,9 @@
 	    });
 	}]);
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -821,6 +823,12 @@
 	    }).state('access.signup', {
 	        url: '/signup',
 	        templateUrl: 'tpl/page_signup.html'
+	        // resolve: {//被使用来处理异步数据调用，以下是返回一个 promise
+	        //     deps: ['uiLoad',
+	        //       function( uiLoad ){
+	        //         return uiLoad.load( ['js/controllers/signup.js'] );
+	        //     }]
+	        // }
 	    }).state('access.forgotpwd', {
 	        url: '/forgotpwd',
 	        templateUrl: 'tpl/page_forgetpwd.html'
@@ -858,11 +866,11 @@
 	    });
 	}]);
 
-/***/ },
+/***/ }),
 /* 4 */,
 /* 5 */,
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -909,9 +917,9 @@
 	    });
 	}]);
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1006,9 +1014,9 @@
 		};
 	}]);
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1080,9 +1088,9 @@
 	  };
 	}]);
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1105,9 +1113,9 @@
 	  };
 	}]);
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1141,9 +1149,9 @@
 	    };
 	}]);
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1255,9 +1263,9 @@
 	    };
 	}]);
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1324,5 +1332,5 @@
 	    };
 	});
 
-/***/ }
+/***/ })
 /******/ ]);

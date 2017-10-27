@@ -1,7 +1,7 @@
 webpackJsonp([2],{
 
 /***/ 5:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -9,6 +9,6 @@ webpackJsonp([2],{
 		$scope.form = 'dddd';
 	});
 
-/***/ }
+/***/ })
 
 });

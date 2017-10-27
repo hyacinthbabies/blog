@@ -57,6 +57,7 @@ angular.module('app').directive('wangeditor', function() {
                 alert('上传错误');
             };
             editor.create();
+            // editor.txt.$txt.html(ngModel);
         }
     };
 });

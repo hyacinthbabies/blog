@@ -1,35 +1,51 @@
-angular.module('app').controller('ArticleController', function($scope, $state) {
-    var page = {
-        pageNo: 0,
-        pageSize: 8
-    };
-    var lists = [{
-        date: '2017/1/10',
-        title: '小程序',
-        summary: '小程序也有应用商城，只是app需要下载，而它是扫描二维码。小程序也有应用商城，只是app需要下载，而它是扫描二维码小程序也有应用商城，只是app需要下载，而它是扫描二维码'
-    }, {
-        date: '2017/1/10',
-        title: '小程序',
-        summary: '小程序也有应用商城，只是app需要下载，而它是扫描二维码。小程序也有应用商城，只是app需要下载，而它是扫描二维码小程序也有应用商城，只是app需要下载，而它是扫描二维码'
-    }];
-    $scope.articleLists = lists;
+angular.module('app').controller('ArticleController', function($scope, $state,$http,$rootScope) {
+    $scope.authError = null;
+
+    //查询文章列表
+    $http.post('/api/content/list')
+    .then(function(response) {
+        if(response.status === 200){
+            $scope.articleLists = response.data;
+        }
+    }, function(x) {
+        $scope.authError = 'Server Error';
+    });
     $scope.showType = 'list';
-    $scope.queryDetail = (type) => {
+
+    //删除文章
+    let deleteArticle = function(id) {
+        $http.post('/api/removeArticle', {articleId:id})
+        .then(function(response) {
+          if (response.status === 200 ) {
+            $http.post('/api/content/list')
+            .then(function(response) {
+                if(response.status === 200){
+                    $scope.articleLists = response.data;
+                }
+            }, function(x) {
+                $scope.authError = 'Server Error';
+            });
+          }
+        }, function(x) {
+          $scope.authError = 'Server Error';
+        });
+      };
+    
+    //查询文章详情
+    $scope.jumpType = (type,id) => {
         switch (type) {
             case 'query':
                 // $scope.showType = 'query';
-                $state.go('app.article-detail');
+                $state.go('app.article-detail',{id: id});
                 break;
             case 'edit':
                 // $scope.showType = 'edit';
-                $state.go('app.article-update');
+                $state.go('app.article-update',{id: id});
                 break;
             case 'delete':
-                $scope.showType = 'delete';
+                deleteArticle(id);
                 break;
         }
-        console.log($scope.showType);
-        console.log('ssss');
     }
 });
 

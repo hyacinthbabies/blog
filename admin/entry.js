@@ -11,3 +11,4 @@ import uiButterbar from './js/directives/ui-butterbar.js';
 import uiToggleClass from './js/directives/ui-toggleclass.js';
 import uiPagination from './js/directives/ui-pagination.js';
 import wangEdito from './js/directives/wang-editor.js';
+import "./js/filters/filter";

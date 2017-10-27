@@ -3,7 +3,7 @@ const path = require('path');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const __DEV__ = process.env.NODE_ENV === 'dev'; //发布环境
 const plugins = [
-    new OpenBrowserPlugin({ url: 'http://127.0.0.1:8080', browser: 'chrome' }),
+    new OpenBrowserPlugin({ url: 'http://127.0.0.1:8080', browser: 'Google Chrome' }),
     new webpack.HotModuleReplacementPlugin()
 ];
 //开发环境不压缩文件
@@ -46,12 +46,9 @@ module.exports = {
             colors: true
         },
         hot: true,
-        proxy: {
-            '/file/*': {
-                target: 'http://127.0.0.1:3000',
-                changeOrigin: true,
-                secure: false
-            }
-        }
+        proxy: [{
+            context: ["/file", "/api"],
+            target: "http://127.0.0.1:3000",
+        }]
     },
 };
