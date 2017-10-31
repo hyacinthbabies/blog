@@ -51,4 +51,33 @@ myApp.controller('LifeCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.btnContent = $scope.show?"隐藏侧栏":"打开侧栏";
   }
 
+  $scope.submitComment=(id)=>{
+    $http.post("/api/postComment",{
+      parentId:"59f7e93db261d41aba908da4",
+      articleId:id,
+      userName:"hyacinth",
+      content:"测试评论",
+      time:new Date(),
+      fromUserId:"",
+      fromUserName:"小包子"
+    })
+    .then(function(response) {
+        if(response.status === 200){
+          console.log("评论")
+        }
+    }, function(x) {
+        $scope.authError = 'Server Error';
+    });
+  }
+
+    //查询文章列表
+    $http.post('/api/comment/list')
+    .then(function(response) {
+        if(response.status === 200){
+            console.log(response.data);
+        }
+    }, function(x) {
+        $scope.authError = 'Server Error';
+    });
+
 }]);

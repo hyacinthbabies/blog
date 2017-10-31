@@ -7,16 +7,28 @@
     <link rel="icon" href="/hyacinth.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/audioplayer.css" type="text/css"/>
+    <link rel="stylesheet" href="css/demo.css" type="text/css"/>
+    <link rel="stylesheet" href="css/reset.css" type="text/css"/>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
+
+    <script>
+        /*
+            VIEWPORT BUG FIX
+            iOS viewport scaling bug fix, by @mathias, @cheeaun and @jdalton
+        */
+        (function(doc){var addEvent='addEventListener',type='gesturestart',qsa='querySelectorAll',scales=[1,1],meta=qsa in doc?doc[qsa]('meta[name=viewport]'):[];function fix(){meta.content='width=device-width,minimum-scale='+scales[0]+',maximum-scale='+scales[1];doc.removeEventListener(type,fix,true);}if((meta=meta[meta.length-1])&&addEvent in doc){fix();scales=[.25,1.6];doc[addEvent](type,fix,true);}}(document));
+    </script>
 </head>
 
 <body ng-controller="AppCtrl">
     <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+    
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/angular.js/1.6.1/angular.min.js"></script>
     <script src="http://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
@@ -32,6 +44,10 @@
     <script src="articlejs/config.router.js"></script>
     <script src="articlejs/main.js"></script>
     <script src="articlejs/filters/fromNow.js"></script>
+    <!-- <script src="framework/audio/audioplayer.js"></script> -->
+    <script src="framework/audio/audioplayer.js"></script>
+    <script src="articlejs/directives/wang-editor.js"></script>
+
 </body>
 
 </html>

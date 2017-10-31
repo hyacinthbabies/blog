@@ -31,5 +31,6 @@ myApp.controller('AppCtrl', ['$scope', '$rootScope','$state',
                 container: false
             }
         }
+        $( function() { $( 'audio' ).audioPlayer(); } )
     }
 ]);

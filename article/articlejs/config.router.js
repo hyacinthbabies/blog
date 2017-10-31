@@ -38,7 +38,7 @@ myApp.run(
                     resolve: { //被使用来处理异步数据调用，以下是返回一个 promise
                         loadMyControl: ['$ocLazyLoad',
                             function($ocLazyLoad) {
-                                return $ocLazyLoad.load(['framework/libs/moment.min.js', 'articlejs/controllers/life.js']);
+                                return $ocLazyLoad.load(['framework/libs/moment.min.js', 'articlejs/controllers/life.js','framework/wangeditor/css/wangEditor.min.css', 'framework/wangeditor/wangEditor.min.js']);
                             }
                         ]
                     }
